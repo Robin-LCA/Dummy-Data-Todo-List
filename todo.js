@@ -92,8 +92,8 @@ const filterByID = () => {
 
     clearTodos();
 
-    // capture the ol
-   let todoList = document.getElementById('todo-list')   
+    // moved to printList function
+   //let todoList = document.getElementById('todo-list')   
 
    // input number from the user
    let userNum = document.getElementById("number_input").value
@@ -103,11 +103,15 @@ const filterByID = () => {
    //for loop
    for(let i=0; i < filterdArray.length; i++) {
 
-      let todoListItem = document.createElement('LI')                    
-      let todoText = document.createTextNode(filterdArray[i].title)  
-      // build the string of code
-      todoListItem.appendChild(todoText)  
-      todoList.appendChild(todoListItem)   
+    printList(filterdArray)
+
+    //   let todoListItem = document.createElement('LI') 
+      
+    //   // put HTML inside the li
+    //   todoListItem.innerHTML = `<p>User: ${arrayOfTodos[i].userId}<br>Title: ${arrayOfTodos[i].title}<br>Completed: ${arrayOfTodos[i].completed}</p>`;
+
+    //   // put the li inside the ol
+    //   todoList.appendChild(todoListItem)   
    
    } // end for
 
@@ -132,17 +136,19 @@ const filterByID = () => {
 
 
 
-const populateV2 = () => {
+const printList = (arr) => {
 
-   let todoList2 = document.getElementById('todo-list');
+    let todoList = document.getElementById('todo-list')   
    
    for (let i = 0; i < arrayOfTodos.length; i++) {
 
-      let todoListItem = document.createElement('LI');
+    let todoListItem = document.createElement('LI') 
       
-      todoListItem.innerHTML = `<h3>${arrayOfTodos[i].title}</h3> <p>${arrayOfTodos[i].completed}</p>`;
-      
-      todoList2.appendChild(todoListItem);
+    // put HTML inside the li
+    todoListItem.innerHTML = `<p>User: ${arrayOfTodos[i].userId}<br>Title: ${arrayOfTodos[i].title}<br>Completed: ${arrayOfTodos[i].completed}</p>`;
+
+    // put the li inside the ol
+    todoList.appendChild(todoListItem)   
    }
 
 }
